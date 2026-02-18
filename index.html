@@ -570,11 +570,66 @@
       id="skills"
       class="py-20 lg:py-32 bg-[#0B1120] text-slate-300 relative overflow-hidden flex items-center justify-center min-h-screen lg:min-h-[80vh]"
     >
+      <style>
+        /* Background blob animation */
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+
+        /* NEW: Floating Animation for Cards */
+        @keyframes float {
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          } /* Moves up 8px */
+          100% {
+            transform: translateY(0px);
+          }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      </style>
+
       <div
-        class="absolute top-0 left-0 w-[600px] h-[600px] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none"
+        class="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
+        style="
+          background-image:
+            linear-gradient(#ffffff 1px, transparent 1px),
+            linear-gradient(to right, #ffffff 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
       ></div>
       <div
-        class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-500/5 blur-[100px] rounded-full pointer-events-none"
+        class="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full mix-blend-screen animate-blob pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/20 blur-[120px] rounded-full mix-blend-screen animate-blob animation-delay-2000 pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[120px] rounded-full mix-blend-screen animate-blob animation-delay-4000 pointer-events-none"
       ></div>
 
       <div
@@ -612,7 +667,7 @@
               </h3>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-yellow-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-yellow-400/50 hover:bg-slate-800/60 transition-all duration-300"
               >
                 <i
                   class="fab fa-js text-2xl text-yellow-400 mr-4 group-hover:scale-110 transition"
@@ -624,7 +679,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-blue-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-blue-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 1s"
               >
                 <i
                   class="fas fa-code text-2xl text-blue-400 mr-4 group-hover:scale-110 transition"
@@ -638,7 +694,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-orange-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-orange-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 2s"
               >
                 <i
                   class="fab fa-html5 text-2xl text-orange-500 mr-4 group-hover:scale-110 transition"
@@ -650,7 +707,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-red-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-red-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 0.5s"
               >
                 <i
                   class="fab fa-java text-2xl text-red-500 mr-4 group-hover:scale-110 transition"
@@ -662,7 +720,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-blue-700/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-blue-700/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 1.5s"
               >
                 <i
                   class="fas fa-terminal text-2xl text-blue-700 mr-4 group-hover:scale-110 transition"
@@ -682,7 +741,8 @@
               </h3>
 
               <div
-                class="group flex items-center p-4 bg-gradient-to-r from-cyan-900/20 to-transparent rounded-xl border border-cyan-500/20 hover:border-cyan-400 hover:bg-cyan-900/30 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-gradient-to-r from-cyan-900/20 to-transparent backdrop-blur-sm rounded-xl border border-cyan-500/20 hover:border-cyan-400 hover:bg-cyan-900/30 transition-all duration-300"
+                style="animation-delay: 1.2s"
               >
                 <i
                   class="fab fa-react text-2xl text-cyan-400 mr-4 group-hover:animate-spin-slow"
@@ -694,7 +754,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-white hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-white hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 2.2s"
               >
                 <i
                   class="fas fa-play text-xl text-white mr-4 transform -rotate-90"
@@ -706,7 +767,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 0.8s"
               >
                 <i
                   class="fas fa-layer-group text-2xl text-purple-500 mr-4 group-hover:scale-110 transition"
@@ -718,7 +780,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-cyan-300/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-cyan-300/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 1.8s"
               >
                 <i
                   class="fas fa-paint-brush text-2xl text-cyan-300 mr-4 group-hover:scale-110 transition"
@@ -730,7 +793,8 @@
               </div>
 
               <div
-                class="group flex items-center p-4 bg-slate-800/40 rounded-xl border border-white/5 hover:border-red-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-red-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 2.8s"
               >
                 <i
                   class="fas fa-search text-2xl text-red-400 mr-4 group-hover:scale-110 transition"
@@ -753,7 +817,8 @@
 
               <div class="grid grid-cols-2 gap-4">
                 <div
-                  class="group p-5 bg-slate-800/40 rounded-xl border border-white/5 hover:border-white/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-white/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 0.3s"
                 >
                   <i
                     class="fab fa-github text-3xl text-slate-400 group-hover:text-white mb-3 transition-colors"
@@ -765,7 +830,8 @@
                 </div>
 
                 <div
-                  class="group p-5 bg-slate-800/40 rounded-xl border border-white/5 hover:border-yellow-300/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-yellow-300/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 1.3s"
                 >
                   <i
                     class="fas fa-bolt text-3xl text-slate-400 group-hover:text-yellow-300 mb-3 transition-colors"
@@ -777,7 +843,8 @@
                 </div>
 
                 <div
-                  class="group p-5 bg-slate-800/40 rounded-xl border border-white/5 hover:border-red-500/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-red-500/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 2.3s"
                 >
                   <i
                     class="fas fa-vial text-3xl text-slate-400 group-hover:text-red-500 mb-3 transition-colors"
@@ -789,7 +856,8 @@
                 </div>
 
                 <div
-                  class="group p-5 bg-slate-800/40 rounded-xl border border-white/5 hover:border-pink-500/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-pink-500/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 0.7s"
                 >
                   <i
                     class="fab fa-figma text-3xl text-slate-400 group-hover:text-pink-500 mb-3 transition-colors"
@@ -801,7 +869,8 @@
                 </div>
 
                 <div
-                  class="group p-5 bg-slate-800/40 rounded-xl border border-white/5 hover:border-indigo-400/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-28 col-span-2"
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-indigo-400/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-28 col-span-2"
+                  style="animation-delay: 3s"
                 >
                   <div class="flex items-center gap-3">
                     <i
