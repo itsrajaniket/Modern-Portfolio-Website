@@ -1,0 +1,2531 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aniket Raj | Portfolio</title>
+
+    <link rel="icon" type="image/png" href="resource/iconio.png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#a855f7",
+              accent: "#22d3ee",
+              dark: "#020617",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass {
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gradient-border {
+        border: 2px solid;
+        border-image: linear-gradient(to right, #6366f1, #22d3ee) 1;
+      }
+      .nav-active {
+        color: #22d3ee;
+        border-bottom: 2px solid #22d3ee;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 20px rgba(34, 211, 238, 0.3);
+      }
+      @keyframes glow {
+        0%,
+        100% {
+          opacity: 0.5;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      .glow-effect {
+        animation: glow 3s infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-dark text-slate-100 font-sans">
+    <canvas
+      id="global-canvas"
+      class="fixed inset-0 pointer-events-none z-50"
+    ></canvas>
+
+    
+        <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+      <div class="container mx-auto px-6 py-4">
+        <div
+          class="glass dark:glass rounded-2xl px-6 py-3 flex justify-between items-center shadow-lg shadow-black/5"
+        >
+          <a
+            href="#home"
+            class="text-2xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent" 
+        
+          >
+          ANIKET.
+        </a>
+
+        <div class="hidden md:flex space-x-8 font-medium">
+          <a href="#home" class="nav-link transition hover:text-accent">Home</a>
+          <a href="#about" class="nav-link transition hover:text-accent"
+            >About</a
+          >
+          <a href="#skills" class="nav-link transition hover:text-accent"
+            >Skills</a
+          >
+          <a href="#experience" class="nav-link transition hover:text-accent"
+            >Experience</a
+          >
+          <a href="#projects" class="nav-link transition hover:text-accent"
+            >Projects</a
+          >
+          <a
+            href="#services" class="nav-link transition hover:text-accent"
+            >Services</a
+          >
+          <a href="#education" class="nav-link transition hover:text-accent"
+            >Education</a
+          >
+          <a href="#contact" class="nav-link transition hover:text-accent"
+            >Contact</a
+          >
+          <a
+            href="resource/Aniket-Resume.pdf"
+            download="Aniket_Raj_Resume.pdf"
+            class="px-5 py-0 border border-accent text-accent rounded-full hover:bg-accent hover:text-dark transition-all shadow-[0_0_10px_rgba(34,211,238,0.2)] hover:shadow-[0_0_20px_rgba(34,211,238,0.6)] font-bold"
+          >
+            Resume <i class="fas fa-download ml-1"></i>
+          </a>
+
+          <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+            <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+          </button>
+        </div>
+
+        <div
+          id="mobile-menu"
+          class="hidden md:hidden absolute top-full left-0 w-full glass border-t border-white/10 py-6 px-6 flex flex-col space-y-4 animate-fade-in"
+        >
+          <a
+            href="#home"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Skills</a
+          >
+            <a
+            href="#experience"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Experience</a
+          >services
+          <a
+            href="#projects"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Projects</a
+          >
+           <a
+            href="#services"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Services</a
+          >
+          <a
+            href="#education"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="mobile-link text-lg font-medium hover:text-accent transition-colors"
+            >Contact</a
+          >
+          <a
+            href="resume.pdf"
+            download="Aniket_Raj_Resume.pdf"
+            class="mobile-link text-lg font-bold text-accent border border-accent/30 p-3 rounded-lg text-center hover:bg-accent hover:text-dark transition-colors"
+          >
+            Download Resume <i class="fas fa-download ml-2"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+    </style>
+
+    <style>
+      /* Add this for the animated background glow */
+      .bg-glow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle at 50% 50%,
+          rgba(99, 102, 241, 0.15) 0%,
+          transparent 50%
+        );
+        z-index: -1;
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+    </style>
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+    >
+      <div class="absolute inset-0 z-0">
+        <img
+          src="resource/head.png"
+          alt="Cyberpunk Background"
+          class="w-full h-full object-cover opacity-100"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-slate-900/90 via-slate-900/80 to-[#020617]"
+        ></div>
+      </div>
+
+      <canvas
+        id="home-canvas"
+        class="absolute inset-0 pointer-events-none z-1"
+      ></canvas>
+
+      <div
+        class="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-[120px] glow-effect"
+      ></div>
+      <div
+        class="absolute bottom-1/4 right-1/4 w-64 h-64 bg-accent/10 rounded-full blur-[120px] glow-effect"
+      ></div>
+
+      <div
+        class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10"
+      >
+        <div class="text-left space-y-6">
+          <div
+            class="inline-block px-4 py-1 rounded-full border border-accent/30 bg-accent/5 text-accent text-sm font-mono mb-2"
+          >
+            Available for New Opportunities
+          </div>
+          <h1 class="text-5xl md:text-8xl font-black tracking-tight">
+            ANIKET <br />
+            <span
+              class="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent"
+              >RAJ</span
+            >
+          </h1>
+          <!-- <h2 class="text-2xl md:text-4xl font-bold text-slate-300">
+            Frontend Developer & <span class="text-white">Problem Solver</span>
+          </h2> -->
+          <h2 class="text-2xl md:text-4xl font-bold text-slate-300">
+            I am a <span class="text-accent" id="typewriter"></span
+            ><span class="animate-pulse">|</span>
+          </h2>
+          <p class="text-slate-400 text-lg max-w-lg leading-relaxed">
+            Specializing in building high-performance
+            <span class="text-accent italic font-medium">React ecosystems</span>
+            and optimizing complex algorithms. Based in Indore, India.
+          </p>
+          <div class="flex flex-wrap gap-4 pt-4">
+            <a
+              href="#projects"
+              class="px-8 py-4 bg-white text-dark font-bold rounded-xl hover:bg-accent hover:scale-105 transition-all shadow-lg shadow-white/5"
+            >
+              Explore My Work
+            </a>
+            <a
+              href="#contact"
+              class="px-8 py-4 glass border border-white/10 text-white font-bold rounded-xl hover:bg-white/5 hover:border-accent transition-all"
+            >
+              Let's Talk
+            </a>
+          </div>
+        </div>
+
+        <div class="hidden md:flex justify-center relative">
+          <div
+            class="floating glass p-5 rounded-3xl border border-white/10 w-80 relative"
+          >
+            <div
+              class="absolute -top-6 -right-6 w-20 h-20 glass rounded-2xl flex items-center justify-center border border-white/20 shadow-xl z-10"
+            >
+              <i
+                class="fab fa-react text-4xl text-cyan-400 animate-spin-slow"
+              ></i>
+            </div>
+
+            <div
+              class="rounded-2xl overflow-hidden border border-white/10 mb-5 relative group"
+            >
+              <img
+                src="resource/3D-avatar.png"
+                alt="Aniket Raj"
+                class="w-full h-95 object-cover object-top transform group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-dark/60 to-transparent opacity-60"
+              ></div>
+            </div>
+
+            <div
+              class="pt-4 border-t border-white/10 flex justify-between items-center"
+            >
+              <div>
+                <p
+                  class="text-[10px] uppercase tracking-widest text-slate-500 font-bold"
+                >
+                  Location
+                </p>
+                <p class="text-sm font-medium">Indore, India</p>
+              </div>
+              <div class="text-right">
+                <p
+                  class="text-[10px] uppercase tracking-widest text-slate-500 font-bold"
+                >
+                  Status
+                </p>
+                <p
+                  class="text-sm font-medium text-green-400 flex items-center gap-1"
+                >
+                  <span
+                    class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
+                  ></span>
+                  Open to Work
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="absolute inset-0 m-auto w-72 h-72 border border-white/5 rounded-full -z-10 animate-ping"
+            style="animation-duration: 4s"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .animate-spin-slow {
+        animation: spin 8s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <section id="about" class="py-24 bg-slate-900/50 relative overflow-hidden">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+          <span class="text-accent mr-4">01.</span> About Me
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+          <div class="text-slate-400 space-y-5 leading-relaxed">
+            <div class="text-slate-400 space-y-4">
+              <p>
+                Hello! I am <span class="text-white">Aniket Raj</span>, a
+                <span class="text-accent">React Developer</span> passionate
+                about building responsive, scalable, and user-friendly web
+                applications.
+              </p>
+              <p>
+                I have hands-on experience collaborating with remote teams and
+                delivering high-quality frontend solutions. My core expertise
+                lies in
+                <span class="text-white">React.js</span>, JavaScript (ES6+),
+                HTML5, and CSS3. I focus on writing clean, reusable, and
+                maintainable code while following best practices.
+              </p>
+              <p>
+                I have worked on integrating REST APIs, managing application
+                state using
+                <span class="text-accent">Redux / Redux Toolkit</span>, and
+                optimizing performance for better user experience. I am
+                comfortable working in agile environments, collaborating with
+                designers, backend developers, and product managers across
+                different time zones.
+              </p>
+              <p>
+                <span class="text-white">Tech Stack:</span> React.js,
+                JavaScript, TypeScript (basic/intermediate), Redux, Redux
+                Toolkit, Context API, HTML, CSS, Tailwind CSS / Bootstrap, REST
+                APIs, Git, GitHub, Jira.
+              </p>
+              <p>
+                I am currently seeking opportunities as a
+                <span class="text-accent"
+                  >React Developer / Frontend Developer</span
+                >, where I can contribute to impactful products and continue
+                growing my skills.
+              </p>
+            </div>
+
+            <!-- <div class="pt-4 flex gap-6">
+              <div>
+                <p class="text-2xl font-bold text-white">5-Star</p>
+                <p class="text-xs uppercase tracking-widest text-accent">
+                  JS HackerRank
+                </p>
+              </div>
+              <div class="border-l border-white/10 pl-6">
+                <p class="text-2xl font-bold text-white">9.8</p>
+                <p class="text-xs uppercase tracking-widest text-accent">
+                  Class 10th CGPA
+                </p>
+              </div>
+            </div> -->
+
+            <div class="pt-6 w-full max-w-md">
+              <p class="text-sm font-bold text-white mb-4">
+                <i class="fas fa-chart-line text-accent mr-2"></i>Coding
+                Activity
+              </p>
+
+              <div
+                class="glass p-5 rounded-xl border border-white/10 hover:border-accent transition-all duration-300 group"
+              >
+                <div
+                  class="flex items-center gap-3 mb-4 border-b border-white/10 pb-4"
+                >
+                  <div
+                    class="p-2 bg-white/5 rounded-lg text-white group-hover:bg-accent/20 group-hover:text-accent transition-colors"
+                  >
+                    <i class="fab fa-github text-2xl"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-white leading-tight">
+                      @itsrajaniket
+                    </h4>
+                    <p class="text-xs text-slate-400">GitHub Statistics</p>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                  <div
+                    class="bg-slate-900/50 p-3 rounded-lg border border-white/5"
+                  >
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fas fa-fire text-orange-500 text-xs"></i>
+                      <span
+                        class="text-[10px] uppercase tracking-wider text-slate-400 font-bold"
+                        >Current Streak</span
+                      >
+                    </div>
+                    <p class="text-xl font-bold text-white">70+ Days</p>
+                  </div>
+
+                  <div
+                    class="bg-slate-900/50 p-3 rounded-lg border border-white/5"
+                  >
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fas fa-code-commit text-blue-400 text-xs"></i>
+                      <span
+                        class="text-[10px] uppercase tracking-wider text-slate-400 font-bold"
+                        >Total Commits</span
+                      >
+                    </div>
+                    <p class="text-xl font-bold text-white">200+</p>
+                  </div>
+
+                  <div
+                    class="bg-slate-900/50 p-3 rounded-lg border border-white/5"
+                  >
+                    <div class="flex items-center gap-2 mb-1">
+                      <i class="fab fa-js text-yellow-400 text-xs"></i>
+                      <span
+                        class="text-[10px] uppercase tracking-wider text-slate-400 font-bold"
+                        >Top Language</span
+                      >
+                    </div>
+                    <p class="text-xl font-bold text-white">JavaScript</p>
+                  </div>
+
+                  <div
+                    class="bg-slate-900/50 p-3 rounded-lg border border-white/5"
+                  >
+                    <div class="flex items-center gap-2 mb-1">
+                      <i
+                        class="fas fa-project-diagram text-purple-400 text-xs"
+                      ></i>
+                      <span
+                        class="text-[10px] uppercase tracking-wider text-slate-400 font-bold"
+                        >Repositories</span
+                      >
+                    </div>
+                    <p class="text-xl font-bold text-white">25+</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative flex justify-center items-center">
+            <div
+              class="absolute w-72 h-72 md:w-96 md:h-96 border border-dashed border-accent/20 rounded-full animate-spin-slow"
+            ></div>
+
+            <div class="absolute w-full h-full animate-spin-slow">
+              <i
+                class="fab fa-react text-3xl text-cyan-400 absolute top-0 left-1/2 -translate-x-1/2 -mt-4 bg-dark p-2 rounded-lg border border-white/10"
+              ></i>
+              <i
+                class="fab fa-js text-3xl text-yellow-400 absolute bottom-0 left-1/2 -translate-x-1/2 -mb-4 bg-dark p-2 rounded-lg border border-white/10"
+              ></i>
+              <i
+                class="fab fa-css3-alt text-3xl text-blue-500 absolute left-0 top-1/2 -translate-y-1/2 -ml-4 bg-dark p-2 rounded-lg border border-white/10"
+              ></i>
+              <i
+                class="fab fa-html5 text-3xl text-orange-500 absolute right-0 top-1/2 -translate-y-1/2 -mr-4 bg-dark p-2 rounded-lg border border-white/10"
+              ></i>
+            </div>
+
+            <div class="relative group">
+              <div
+                class="absolute -inset-1 bg-gradient-to-r from-primary to-accent rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-1000"
+              ></div>
+              <div
+                class="relative w-64 h-80 bg-slate-800 rounded-2xl overflow-hidden border border-white/10"
+              >
+                <img
+                  src="resource/selfphoto.png"
+                  alt="Aniket Raj"
+                  class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-500"
+                />
+
+                <div
+                  class="absolute bottom-4 left-4 right-4 glass p-3 rounded-xl border border-white/10 translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300"
+                >
+                  <p
+                    class="text-[10px] font-mono text-accent flex items-center gap-2"
+                  >
+                    <span
+                      class="w-2 h-2 bg-green-500 rounded-full animate-pulse"
+                    ></span>
+                    const status = "Coding..."
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .animate-spin-slow {
+        animation: spin 12s linear infinite;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <style>
+      /* Add this to your style block for the neon effect you requested */
+      .hover\:shadow-neon:hover {
+        box-shadow: 0 0 15px rgba(34, 211, 238, 0.4);
+        border-color: #22d3ee;
+      }
+    </style>
+
+    <section
+      id="skills"
+      class="py-20 lg:py-32 bg-[#0B1120] text-slate-300 relative overflow-hidden flex items-center justify-center min-h-screen lg:min-h-[80vh]"
+    >
+      <style>
+        /* Background blob animation */
+        @keyframes blob {
+          0% {
+            transform: translate(0px, 0px) scale(1);
+          }
+          33% {
+            transform: translate(30px, -50px) scale(1.1);
+          }
+          66% {
+            transform: translate(-20px, 20px) scale(0.9);
+          }
+          100% {
+            transform: translate(0px, 0px) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+
+        /* NEW: Floating Animation for Cards */
+        @keyframes float {
+          0% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          } /* Moves up 8px */
+          100% {
+            transform: translateY(0px);
+          }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      </style>
+
+      <div
+        class="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
+        style="
+          background-image:
+            linear-gradient(#ffffff 1px, transparent 1px),
+            linear-gradient(to right, #ffffff 1px, transparent 1px);
+          background-size: 50px 50px;
+        "
+      ></div>
+      <div
+        class="absolute top-0 left-0 w-[500px] h-[500px] bg-blue-500/20 blur-[120px] rounded-full mix-blend-screen animate-blob pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/20 blur-[120px] rounded-full mix-blend-screen animate-blob animation-delay-2000 pointer-events-none"
+      ></div>
+      <div
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 blur-[120px] rounded-full mix-blend-screen animate-blob animation-delay-4000 pointer-events-none"
+      ></div>
+
+      <div
+        class="container mx-auto px-4 lg:px-8 max-w-[1400px] relative z-10 w-full"
+      >
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div class="lg:col-span-3 lg:sticky lg:top-20">
+            <span
+              class="text-cyan-400 font-mono tracking-widest uppercase text-2xl mb-6 block"
+              >02. Proficiency</span
+            >
+            <h2
+              class="text-4xl lg:text-6xl font-bold text-white mb-8 tracking-tight leading-none"
+            >
+              My Tech <br />
+              <span class="text-slate-500">Arsenal.</span>
+            </h2>
+            <p class="text-slate-400 text-base leading-relaxed mb-10 max-w-md">
+              A focused arsenal of modern tools designed for performance,
+              scalability, and user experience.
+            </p>
+            <div
+              class="w-20 h-1.5 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full"
+            ></div>
+          </div>
+
+          <div
+            class="lg:col-span-9 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
+          >
+            <div class="space-y-4">
+              <h3
+                class="text-white font-bold text-base uppercase tracking-wider mb-6 border-b border-white/10 pb-3"
+              >
+                <i class="fas fa-code text-cyan-400 mr-3"></i> Core
+              </h3>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-yellow-400/50 hover:bg-slate-800/60 transition-all duration-300"
+              >
+                <i
+                  class="fab fa-js text-2xl text-yellow-400 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">JavaScript</h4>
+                  <p class="text-xs text-slate-500 font-medium">ES6+ & Async</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-blue-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 1s"
+              >
+                <i
+                  class="fas fa-code text-2xl text-blue-400 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">TypeScript</h4>
+                  <p class="text-xs text-slate-500 font-medium">
+                    Strict Typing
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-orange-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 2s"
+              >
+                <i
+                  class="fab fa-html5 text-2xl text-orange-500 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">HTML & CSS</h4>
+                  <p class="text-xs text-slate-500 font-medium">Semantic</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-red-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 0.5s"
+              >
+                <i
+                  class="fab fa-java text-2xl text-red-500 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">Java</h4>
+                  <p class="text-xs text-slate-500 font-medium">OOP Logic</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-blue-700/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 1.5s"
+              >
+                <i
+                  class="fas fa-terminal text-2xl text-blue-700 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">C++</h4>
+                  <p class="text-xs text-slate-500 font-medium">Algorithms</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h3
+                class="text-white font-bold text-base uppercase tracking-wider mb-6 border-b border-white/10 pb-3"
+              >
+                <i class="fab fa-react text-purple-400 mr-3"></i> Stack
+              </h3>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-gradient-to-r from-cyan-900/20 to-transparent backdrop-blur-sm rounded-xl border border-cyan-500/20 hover:border-cyan-400 hover:bg-cyan-900/30 transition-all duration-300"
+                style="animation-delay: 1.2s"
+              >
+                <i
+                  class="fab fa-react text-2xl text-cyan-400 mr-4 group-hover:animate-spin-slow"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">React.js</h4>
+                  <p class="text-xs text-slate-400 font-medium">Core Library</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-white hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 2.2s"
+              >
+                <i
+                  class="fas fa-play text-xl text-white mr-4 transform -rotate-90"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">Next.js</h4>
+                  <p class="text-xs text-slate-500 font-medium">Full Stack</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 0.8s"
+              >
+                <i
+                  class="fas fa-layer-group text-2xl text-purple-500 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">Redux</h4>
+                  <p class="text-xs text-slate-500 font-medium">State Mgmt</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-cyan-300/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 1.8s"
+              >
+                <i
+                  class="fas fa-paint-brush text-2xl text-cyan-300 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">Tailwind</h4>
+                  <p class="text-xs text-slate-500 font-medium">Styling</p>
+                </div>
+              </div>
+
+              <div
+                class="animate-float group flex items-center p-4 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-red-400/50 hover:bg-slate-800/60 transition-all duration-300"
+                style="animation-delay: 2.8s"
+              >
+                <i
+                  class="fas fa-search text-2xl text-red-400 mr-4 group-hover:scale-110 transition"
+                ></i>
+                <div>
+                  <h4 class="text-white text-base font-semibold">
+                    React Query
+                  </h4>
+                  <p class="text-xs text-slate-500 font-medium">Async Data</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4">
+              <h3
+                class="text-white font-bold text-base uppercase tracking-wider mb-6 border-b border-white/10 pb-3"
+              >
+                <i class="fas fa-tools text-green-400 mr-3"></i> Tools
+              </h3>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-white/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 0.3s"
+                >
+                  <i
+                    class="fab fa-github text-3xl text-slate-400 group-hover:text-white mb-3 transition-colors"
+                  ></i>
+                  <span
+                    class="text-sm font-semibold text-slate-400 group-hover:text-white"
+                    >GitHub</span
+                  >
+                </div>
+
+                <div
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-yellow-300/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 1.3s"
+                >
+                  <i
+                    class="fas fa-bolt text-3xl text-slate-400 group-hover:text-yellow-300 mb-3 transition-colors"
+                  ></i>
+                  <span
+                    class="text-sm font-semibold text-slate-400 group-hover:text-white"
+                    >Vite</span
+                  >
+                </div>
+
+                <div
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-red-500/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 2.3s"
+                >
+                  <i
+                    class="fas fa-vial text-3xl text-slate-400 group-hover:text-red-500 mb-3 transition-colors"
+                  ></i>
+                  <span
+                    class="text-sm font-semibold text-slate-400 group-hover:text-white"
+                    >Jest</span
+                  >
+                </div>
+
+                <div
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-pink-500/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-24"
+                  style="animation-delay: 0.7s"
+                >
+                  <i
+                    class="fab fa-figma text-3xl text-slate-400 group-hover:text-pink-500 mb-3 transition-colors"
+                  ></i>
+                  <span
+                    class="text-sm font-semibold text-slate-400 group-hover:text-white"
+                    >Figma</span
+                  >
+                </div>
+
+                <div
+                  class="animate-float group p-5 bg-slate-800/40 backdrop-blur-sm rounded-xl border border-white/5 hover:border-indigo-400/60 text-center transition-all duration-300 flex flex-col items-center justify-center h-28 col-span-2"
+                  style="animation-delay: 3s"
+                >
+                  <div class="flex items-center gap-3">
+                    <i
+                      class="fas fa-plug text-2xl text-slate-400 group-hover:text-indigo-400 transition-colors"
+                    ></i>
+                    <span
+                      class="text-sm font-semibold text-slate-400 group-hover:text-white"
+                      >REST API Integration</span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="py-24 bg-dark">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+          <span class="text-accent mr-4">03.</span> Freelance Projects
+        </h2>
+        <div
+          class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+        >
+          <div
+            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+            style="
+              background-image: url(&quot;resource/project-maharani.jpg&quot;);
+            "
+          ></div>
+          <div
+            class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+          ></div>
+
+          <div class="relative z-10 p-6 flex flex-col h-full">
+            <div class="flex justify-between items-start mb-4">
+              <i
+                class="fas fa-ice-cream text-accent text-3xl drop-shadow-lg"
+              ></i>
+              <div class="flex gap-4">
+                <a
+                  href="https://github.com/itsrajaniket/freelance-restaurant-app"
+                  target="_blank"
+                  class="text-slate-300 hover:text-white transition"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href="https://itsrajaniket.github.io/freelance-restaurant-app/"
+                  target="_blank"
+                  class="text-slate-300 hover:text-accent transition"
+                >
+                  <i class="fas fa-external-link-alt text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-white">
+              Maharani Food Plaza
+            </h3>
+            <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+              A premium mobile-first ordering engine featuring dynamic menu
+              rendering, real-time search, and a seamless WhatsApp-integrated
+              checkout flow for local businesses.
+            </p>
+            <div class="flex justify-between items-center mt-auto">
+              <div
+                class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+              >
+                <span>VANILLA JS</span><span>TAILWIND</span
+                ><span>MOBILE-UI</span>
+              </div>
+              <a
+                href="https://itsrajaniket.github.io/freelance-restaurant-app/"
+                target="_blank"
+                class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                >Live Demo →</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col">
+  <div
+    class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+    
+    style="
+              background-image: url(&quot;resource/project-job.png&quot;);
+            "
+  
+  ></div>
+  <div class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"></div>
+
+  <div class="relative z-10 p-6 flex flex-col h-full">
+    <div class="flex justify-between items-start mb-4">
+      <i class="fas fa-anchor text-accent text-3xl drop-shadow-lg"></i>
+      <div class="flex gap-4">
+        <a
+          href="https://github.com/itsrajaniket/Corporate-Job-Search-Tracker-in-React"
+          target="_blank"
+          class="text-slate-300 hover:text-white transition"
+        >
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a
+          href="https://corporate-job-tracker.vercel.app/"
+          target="_blank"
+          class="text-slate-300 hover:text-accent transition"
+        >
+          <i class="fas fa-external-link-alt text-xl"></i>
+        </a>
+      </div>
+    </div>
+    <h3 class="text-xl font-bold mb-2 text-white">Corporate Job Tracker</h3>
+    <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+      A job search engine for the Indian market featuring 550+ pre-loaded companies, built-in gratuity calculators, and interactive data visualization using Chart.js.
+    </p>
+    <div class="flex justify-between items-center mt-auto">
+      <div class="flex gap-2 text-[10px] font-mono text-accent font-bold">
+        <span>CHART.JS</span><span>LOCAL STORAGE</span><span>VANILLA JS</span>
+      </div>
+      <a
+        href="https://corporate-job-tracker.vercel.app/"
+        target="_blank"
+        class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+      >Live Demo →</a>
+    </div>
+  </div>
+</div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-24 bg-dark">
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+          <span class="text-accent mr-4">03(a).</span> Featured Projects
+        </h2>
+
+<div class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col">
+  <div
+    class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+    style="background-image: url('resource/project-habit.jpg');" 
+  ></div>
+  <div class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"></div>
+
+  <div class="relative z-10 p-6 flex flex-col h-full">
+    <div class="flex justify-between items-start mb-4">
+      <i class="fas fa-fire text-accent text-3xl drop-shadow-lg"></i>
+      <div class="flex gap-4">
+        <a
+          href="https://github.com/itsrajaniket/Habit_Builder"
+          target="_blank"
+          class="text-slate-300 hover:text-white transition"
+        >
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a
+          href="https://habit-builder-kit.vercel.app"
+          target="_blank"
+          class="text-slate-300 hover:text-accent transition"
+        >
+          <i class="fas fa-external-link-alt text-xl"></i>
+        </a>
+      </div>
+    </div>
+    <h3 class="text-xl font-bold mb-2 text-white">Habit Builder Kit</h3>
+    <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+      A full-stack habit tracker with Supabase integration, featuring XP gamification, streak protection, mood logging, and interactive heatmaps for deep habit analytics.
+    </p>
+    <div class="flex justify-between items-center mt-auto">
+      <div class="flex gap-2 text-[10px] font-mono text-accent font-bold">
+        <span>REACT 18</span><span>SUPABASE</span><span>ZUSTAND</span>
+      </div>
+      <a
+        href="https://habit-builder-kit.vercel.app"
+        target="_blank"
+        class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+      >Live Demo →</a>
+    </div>
+  </div>
+</div>
+
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+         
+
+          <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="background-image: url(&quot;resource/project-qr.jpg&quot;)"
+            ></div>
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i
+                  class="fas fa-qrcode text-accent text-3xl drop-shadow-lg"
+                ></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/QR-Code-Generator"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://itsrajaniket.github.io/QR-Code-Generator/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">
+                QR Code Generator
+              </h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                Generates QR codes instantly from text or URLs. Designed with a
+                focus on clean UI and responsiveness.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>JS</span><span>API</span>
+                </div>
+                <a
+                  href="https://itsrajaniket.github.io/QR-Code-Generator/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+
+ <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="
+                background-image: url(&quot;resource/project-habit.jpg&quot;);
+              "
+            ></div>
+
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i
+                  class="fas fa-calendar-check text-accent text-3xl drop-shadow-lg"
+                ></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/Habit-Tracker-Pro"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                    title="View Code"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://itsrajaniket.github.io/Habit-Tracker-Pro/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                    title="Live Demo"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">
+                Habit Tracker Pro
+              </h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                A comprehensive tool to track daily routines, manage habits, and
+                visualize streaks with an interactive UI.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>VANILLA JS</span><span>CSS3</span>
+                </div>
+                <a
+                  href="https://itsrajaniket.github.io/Habit-Tracker-Pro/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="
+                background-image: url(&quot;resource/project-weather.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i
+                  class="fas fa-cloud-sun text-accent text-3xl drop-shadow-lg"
+                ></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/Weather-App"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://itsrajaniket.github.io/Weather-App/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">Weather App</h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                Fetches real-time weather data using OpenWeather API. Features
+                dynamic backgrounds and smooth animations.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>REST API</span><span>JS</span>
+                </div>
+                <a
+                  href="https://itsrajaniket.github.io/Weather-App/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="
+                background-image: url(&quot;resource/project-speech.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i
+                  class="fas fa-volume-up text-accent text-3xl drop-shadow-lg"
+                ></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/Text-to-Speech-Converter"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://itsrajaniket.github.io/Text-to-Speech-Converter/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">Text-to-Speech</h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                An accessibility tool that converts text into natural-sounding
+                speech using the Web Speech API.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>WEB API</span><span>JS</span>
+                </div>
+                <a
+                  href="https://itsrajaniket.github.io/Text-to-Speech-Converter/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="
+                background-image: url(&quot;resource/project-markdown.png&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i
+                  class="fas fa-file-code text-accent text-3xl drop-shadow-lg"
+                ></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/Your-Markdown-Editor"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://markdown-studio-pro.netlify.app/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">Markdown Studio</h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                A feature-rich React editor with real-time preview, synchronized
+                scrolling, and multi-format export options (MD/DOCX). Includes
+                XSS protection and syntax highlighting.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>REACT</span><span>PRISM.JS</span><span>MARKED</span>
+                </div>
+                <a
+                  href="https://markdown-studio-pro.netlify.app/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+          <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="
+                background-image: url(&quot;resource/project-dog.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i class="fas fa-dog text-accent text-3xl drop-shadow-lg"></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/dog-api-project"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://itsrajaniket.github.io/dog-api-project/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">Dog API Gallery</h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                A fun project that fetches random dog images and breed
+                information using asynchronous JavaScript.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>FETCH</span><span>JSON</span>
+                </div>
+                <a
+                  href="https://itsrajaniket.github.io/dog-api-project/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+
+<div class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col">
+  <div
+    class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+    style="background-image: url('resource/project-beatreactor.jpg');" 
+  ></div>
+  <div class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"></div>
+
+  <div class="relative z-10 p-6 flex flex-col h-full">
+    <div class="flex justify-between items-start mb-4">
+      <i class="fas fa-compact-disc text-accent text-3xl drop-shadow-lg"></i>
+      <div class="flex gap-4">
+        <a
+          href="https://github.com/itsrajaniket/BeatReactor"
+          target="_blank"
+          class="text-slate-300 hover:text-white transition"
+        >
+          <i class="fab fa-github text-xl"></i>
+        </a>
+        <a
+          href="https://itsrajaniket.github.io/BeatReactor/"
+          target="_blank"
+          class="text-slate-300 hover:text-accent transition"
+        >
+          <i class="fas fa-external-link-alt text-xl"></i>
+        </a>
+      </div>
+    </div>
+    <h3 class="text-xl font-bold mb-2 text-white">BeatReactor Synth</h3>
+    <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+      A high-performance cyberpunk music station featuring a dual-sound engine, real-time keyboard mapping, and built-in recording capabilities using the Web Audio API.
+    </p>
+    <div class="flex justify-between items-center mt-auto">
+      <div class="flex gap-2 text-[10px] font-mono text-accent font-bold">
+        <span>WEB AUDIO API</span><span>JS ES6+</span><span>NEON UI</span>
+      </div>
+      <a
+        href="https://itsrajaniket.github.io/BeatReactor/"
+        target="_blank"
+        class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+      >Live Demo →</a>
+    </div>
+  </div>
+</div>
+
+          <div
+            class="group relative rounded-2xl overflow-hidden project-card border border-white/10 hover:border-accent transition-all h-full flex flex-col"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+              style="
+                background-image: url(&quot;resource/project-dog.jpg&quot;);
+              "
+            ></div>
+            <div
+              class="absolute inset-0 bg-slate-900/95 group-hover:bg-slate-900/80 transition-colors duration-300"
+            ></div>
+
+            <div class="relative z-10 p-6 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-4">
+                <i
+                  class="fas fa-fill-drip text-accent text-3xl drop-shadow-lg"
+                ></i>
+                <div class="flex gap-4">
+                  <a
+                    href="https://github.com/itsrajaniket/Color-Flipper"
+                    target="_blank"
+                    class="text-slate-300 hover:text-white transition"
+                  >
+                    <i class="fab fa-github text-xl"></i>
+                  </a>
+                  <a
+                    href="https://itsrajaniket.github.io/Color-Flipper/"
+                    target="_blank"
+                    class="text-slate-300 hover:text-accent transition"
+                  >
+                    <i class="fas fa-external-link-alt text-xl"></i>
+                  </a>
+                </div>
+              </div>
+              <h3 class="text-xl font-bold mb-2 text-white">Color Flipper</h3>
+              <p class="text-slate-300 text-sm mb-6 flex-grow font-medium">
+                A simple yet effective tool to generate random colors and hex
+                codes, demonstrating expert DOM manipulation.
+              </p>
+              <div class="flex justify-between items-center mt-auto">
+                <div
+                  class="flex gap-2 text-[10px] font-mono text-accent font-bold"
+                >
+                  <span>DOM</span><span>JS</span>
+                </div>
+                <a
+                  href="https://itsrajaniket.github.io/Color-Flipper/"
+                  target="_blank"
+                  class="text-xs font-bold uppercase tracking-wider text-white hover:text-accent transition"
+                  >Live Demo →</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="relative w-full min-h-screen flex items-center justify-center bg-[#0a0a0a] py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+  
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-gradient-to-tr from-pink-500/10 via-purple-600/10 to-blue-700/10 blur-[120px] pointer-events-none rounded-full"></div>
+
+  <div class="relative w-full max-w-7xl mx-auto space-y-10">
+    
+    <div class="text-center space-y-4">
+      <h2 class="inline-block text-4xl lg:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 pb-2">
+        My Expertise
+      </h2>
+      <p class="max-w-2xl mx-auto font-light text-gray-400 text-lg sm:text-xl">
+        Offering end-to-end web solutions. From pixel-perfect design to robust backend architecture.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <div class="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm hover:-translate-y-2 hover:border-purple-500/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-lg hover:shadow-[0_8px_30px_rgb(168,85,247,0.15)]">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-purple-500/0 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4 text-purple-400 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-purple-300 transition-colors">Frontend Development</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Building responsive, interactive, and highly performant user interfaces using modern frameworks.</p>
+        </div>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm hover:-translate-y-2 hover:border-pink-500/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-lg hover:shadow-[0_8px_30px_rgb(236,72,153,0.15)]">
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/0 via-pink-500/0 to-pink-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-pink-500/10 flex items-center justify-center mb-4 text-pink-400 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-pink-300 transition-colors">UI/UX Design</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Crafting intuitive user experiences with clean, modern aesthetics and user-centric design principles.</p>
+        </div>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm hover:-translate-y-2 hover:border-blue-500/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-lg hover:shadow-[0_8px_30px_rgb(59,130,246,0.15)]">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/0 via-blue-500/0 to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">Backend & APIs</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Developing secure, scalable server-side logic and RESTful APIs to power your applications.</p>
+        </div>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm hover:-translate-y-2 hover:border-emerald-500/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-lg hover:shadow-[0_8px_30px_rgb(16,185,129,0.15)]">
+        <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/0 via-emerald-500/0 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center mb-4 text-emerald-400 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-emerald-300 transition-colors">Performance Tuning</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Optimizing load times, SEO, and web architecture to ensure lightning-fast user experiences.</p>
+        </div>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm hover:-translate-y-2 hover:border-orange-500/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-lg hover:shadow-[0_8px_30px_rgb(249,115,22,0.15)]">
+        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/0 via-orange-500/0 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-orange-500/10 flex items-center justify-center mb-4 text-orange-400 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-orange-300 transition-colors">Responsive Design</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Ensuring your web applications look flawless and function perfectly across all devices and screen sizes.</p>
+        </div>
+      </div>
+
+      <div class="group relative p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm hover:-translate-y-2 hover:border-cyan-500/50 transition-all duration-300 cursor-pointer overflow-hidden shadow-lg hover:shadow-[0_8px_30px_rgb(6,182,212,0.15)]">
+        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 via-cyan-500/0 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="relative z-10">
+          <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center mb-4 text-cyan-400 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">Cloud & Deployment</h3>
+          <p class="text-sm text-gray-400 leading-relaxed">Managing cloud infrastructure, databases, and continuous integration pipelines for reliable hosting.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!--     
+    <section id="education" class="py-24 bg-dark relative overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <img
+          src="resource/edu-logo.png"
+          alt="Coding Background"
+          class="w-full h-full object-cover opacity-40"
+        />
+
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-[#020617] via-transparent to-[#020617]"
+        ></div>
+      </div>
+      <div
+        class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/5 rounded-full blur-[120px]"
+      ></div>
+
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-16 flex items-center">
+          <span class="text-accent mr-4">04.</span> Academic Journey
+        </h2>
+
+        <div class="max-w-4xl mx-auto relative">
+          <div
+            class="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-accent via-primary to-slate-800"
+          ></div>
+
+          <div
+            class="relative mb-12 md:flex justify-between items-center w-full"
+          >
+            <div class="hidden md:block w-5/12"></div>
+            <div
+              class="z-20 absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-accent shadow-[0_0_15px_rgba(34,211,238,0.8)] border-4 border-dark"
+            ></div>
+            <div
+              class="ml-8 md:ml-0 md:w-5/12 glass p-6 rounded-2xl border-l-4 border-accent hover:scale-105 transition-transform"
+            >
+              <span class="text-accent font-mono text-sm">2019 — 2021</span>
+              <h3 class="text-xl font-bold mt-1">
+                M.Sc. Electronics & Communication
+              </h3>
+              <p class="text-slate-400">Ranchi University</p>
+              <div
+                class="mt-2 inline-block px-3 py-1 rounded-lg bg-accent/10 text-accent font-bold text-sm"
+              >
+                CGPA: 8.81
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative mb-12 md:flex justify-between items-center w-full flex-row-reverse"
+          >
+            <div class="hidden md:block w-5/12"></div>
+            <div
+              class="z-20 absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(99,102,241,0.8)] border-4 border-dark"
+            ></div>
+            <div
+              class="ml-8 md:ml-0 md:w-5/12 glass p-6 rounded-2xl border-r-4 border-primary text-left md:text-right hover:scale-105 transition-transform"
+            >
+              <span class="text-primary font-mono text-sm">2016 — 2019</span>
+              <h3 class="text-xl font-bold mt-1">B.Sc. Physics</h3>
+              <p class="text-slate-400">Gossner College, Ranchi</p>
+              <div
+                class="mt-2 inline-block px-3 py-1 rounded-lg bg-primary/10 text-primary font-bold text-sm"
+              >
+                Score: 63%
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative mb-12 md:flex justify-between items-center w-full"
+          >
+            <div class="hidden md:block w-5/12"></div>
+            <div
+              class="z-20 absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-secondary shadow-[0_0_15px_rgba(168,85,247,0.8)] border-4 border-dark"
+            ></div>
+            <div
+              class="ml-8 md:ml-0 md:w-5/12 glass p-6 rounded-2xl border-l-4 border-secondary hover:scale-105 transition-transform"
+            >
+              <span class="text-secondary font-mono text-sm">2014 — 2016</span>
+              <h3 class="text-xl font-bold mt-1">
+                Higher Secondary (Class 12th)
+              </h3>
+              <p class="text-slate-400">Delhi Public School, Ranchi (CBSE)</p>
+              <p class="text-xs text-slate-500 mt-1 uppercase tracking-widest">
+                Stream: PCM
+              </p>
+              <div
+                class="mt-2 inline-block px-3 py-1 rounded-lg bg-secondary/10 text-secondary font-bold text-sm"
+              >
+                Score: 70%
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="relative mb-4 md:flex justify-between items-center w-full flex-row-reverse"
+          >
+            <div class="hidden md:block w-5/12"></div>
+            <div
+              class="z-20 absolute left-0 md:left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-slate-500 border-4 border-dark"
+            ></div>
+            <div
+              class="ml-8 md:ml-0 md:w-5/12 glass p-6 rounded-2xl border-r-4 border-slate-500 text-left md:text-right hover:scale-105 transition-transform"
+            >
+              <span class="text-slate-500 font-mono text-sm">2013 — 2014</span>
+              <h3 class="text-xl font-bold mt-1">
+                Secondary School (Class 10th)
+              </h3>
+              <p class="text-slate-400">
+                St. Jude's Vidyalaya, Begusarai (CBSE)
+              </p>
+              <div
+                class="mt-2 inline-block px-3 py-1 rounded-lg bg-slate-500/10 text-slate-300 font-bold text-sm"
+              >
+                CGPA: 9.8
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+<section id="education" class="py-8 bg-[#0a0a0a] relative overflow-hidden text-slate-200 flex items-center min-h-[80vh]">
+  
+  <div class="absolute inset-0 z-0">
+    <img
+      src="resource/edu-logo.png"
+      alt="Coding Background"
+      class="w-full h-full object-cover opacity-10"
+    />
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a] via-[#0a0a0a]/80 to-[#0a0a0a]"></div>
+  </div>
+  
+  <div class="absolute top-0 right-0 w-[400px] h-[400px] bg-cyan-500/5 rounded-full blur-[100px] pointer-events-none"></div>
+
+  <div class="container mx-auto px-4 sm:px-6 relative z-10 max-w-6xl">
+    
+    <h2 class="text-2xl font-bold mb-6 flex items-center justify-center lg:justify-start">
+      <span class="text-cyan-400 mr-3 font-mono text-lg">04.</span> 
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">My Journey</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      
+      <div class="relative group">
+        <div class="absolute top-0 left-4 w-12 h-1 bg-rose-500 rounded-b-md z-10 group-hover:w-full transition-all duration-500"></div>
+        <div class="h-full bg-slate-900/60 backdrop-blur-md p-4 pt-5 rounded-xl border border-slate-800 hover:-translate-y-1 hover:border-rose-500/50 transition-all duration-300 shadow-lg flex flex-col">
+          <span class="text-rose-400 font-mono text-[10px] tracking-widest font-bold mb-1 uppercase">2025 — 2026</span>
+          <h3 class="text-base font-bold text-white leading-tight">Freelance Web Developer</h3>
+          <p class="text-slate-400 text-xs mt-1 mb-3 flex-grow leading-relaxed">Building modern, full-stack web applications and interactive UI interfaces.</p>
+          <div class="inline-flex w-max items-center px-2 py-0.5 rounded bg-rose-500/10 border border-rose-500/20 text-rose-300 font-bold text-[10px]">
+            React & Node.js
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute top-0 left-4 w-12 h-1 bg-amber-500 rounded-b-md z-10 group-hover:w-full transition-all duration-500"></div>
+        <div class="h-full bg-slate-900/60 backdrop-blur-md p-4 pt-5 rounded-xl border border-slate-800 hover:-translate-y-1 hover:border-amber-500/50 transition-all duration-300 shadow-lg flex flex-col">
+          <span class="text-amber-400 font-mono text-[10px] tracking-widest font-bold mb-1 uppercase">2021 — 2024</span>
+          <h3 class="text-base font-bold text-white leading-tight">UPSC / Govt Exams</h3>
+          <p class="text-slate-400 text-xs mt-1 mb-3 flex-grow leading-relaxed">Dedicated time focused on intensive preparation for civil services.</p>
+          <div class="inline-flex w-max items-center px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-300 font-bold text-[10px]">
+            Career Sabbatical
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute top-0 left-4 w-12 h-1 bg-cyan-500 rounded-b-md z-10 group-hover:w-full transition-all duration-500"></div>
+        <div class="h-full bg-slate-900/60 backdrop-blur-md p-4 pt-5 rounded-xl border border-slate-800 hover:-translate-y-1 hover:border-cyan-500/50 transition-all duration-300 shadow-lg flex flex-col">
+          <span class="text-cyan-400 font-mono text-[10px] tracking-widest font-bold mb-1 uppercase">2019 — 2021</span>
+          <h3 class="text-base font-bold text-white leading-tight">M.Sc. Electronics & Comm.</h3>
+          <p class="text-slate-400 text-xs mt-1 mb-3 flex-grow leading-relaxed">Ranchi University</p>
+          <div class="inline-flex w-max items-center px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 font-bold text-[10px]">
+            CGPA: 8.81
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute top-0 left-4 w-12 h-1 bg-purple-500 rounded-b-md z-10 group-hover:w-full transition-all duration-500"></div>
+        <div class="h-full bg-slate-900/60 backdrop-blur-md p-4 pt-5 rounded-xl border border-slate-800 hover:-translate-y-1 hover:border-purple-500/50 transition-all duration-300 shadow-lg flex flex-col">
+          <span class="text-purple-400 font-mono text-[10px] tracking-widest font-bold mb-1 uppercase">2016 — 2019</span>
+          <h3 class="text-base font-bold text-white leading-tight">B.Sc. Physics</h3>
+          <p class="text-slate-400 text-xs mt-1 mb-3 flex-grow leading-relaxed">Gossner College, Ranchi</p>
+          <div class="inline-flex w-max items-center px-2 py-0.5 rounded bg-purple-500/10 border border-purple-500/20 text-purple-300 font-bold text-[10px]">
+            Score: 63%
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute top-0 left-4 w-12 h-1 bg-blue-500 rounded-b-md z-10 group-hover:w-full transition-all duration-500"></div>
+        <div class="h-full bg-slate-900/60 backdrop-blur-md p-4 pt-5 rounded-xl border border-slate-800 hover:-translate-y-1 hover:border-blue-500/50 transition-all duration-300 shadow-lg flex flex-col">
+          <span class="text-blue-400 font-mono text-[10px] tracking-widest font-bold mb-1 uppercase">2014 — 2016</span>
+          <h3 class="text-base font-bold text-white leading-tight">Higher Secondary (12th)</h3>
+          <p class="text-slate-400 text-xs mt-1 mb-3 flex-grow leading-relaxed">DPS, Ranchi (CBSE)<br/><span class="text-blue-500/70 text-[9px] uppercase tracking-widest font-semibold">Stream: PCM</span></p>
+          <div class="inline-flex w-max items-center px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-300 font-bold text-[10px]">
+            Score: 70%
+          </div>
+        </div>
+      </div>
+
+      <div class="relative group">
+        <div class="absolute top-0 left-4 w-12 h-1 bg-emerald-500 rounded-b-md z-10 group-hover:w-full transition-all duration-500"></div>
+        <div class="h-full bg-slate-900/60 backdrop-blur-md p-4 pt-5 rounded-xl border border-slate-800 hover:-translate-y-1 hover:border-emerald-500/50 transition-all duration-300 shadow-lg flex flex-col">
+          <span class="text-emerald-400 font-mono text-[10px] tracking-widest font-bold mb-1 uppercase">2013 — 2014</span>
+          <h3 class="text-base font-bold text-white leading-tight">Secondary School (10th)</h3>
+          <p class="text-slate-400 text-xs mt-1 mb-3 flex-grow leading-relaxed">St. Jude's Vidyalaya (CBSE)</p>
+          <div class="inline-flex w-max items-center px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 font-bold text-[10px]">
+            CGPA: 9.8
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+    <!-- <section id="contact" class="py-24 relative overflow-hidden">
+      <div class="absolute inset-0 -z-10">
+        <div
+          class="absolute w-[600px] h-[600px] bg-gradient-to-r from-primary/20 via-purple-500/10 to-accent/20 rounded-full blur-[120px] animate-pulse top-1/4 left-1/4"
+        ></div>
+        <div
+          class="absolute w-[500px] h-[500px] bg-gradient-to-r from-accent/10 via-blue-500/10 to-primary/20 rounded-full blur-[120px] animate-ping bottom-1/4 right-1/4"
+          style="animation-duration: 10s"
+        ></div>
+      </div>
+
+      <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold mb-12 flex items-center">
+          <span class="text-accent mr-4">05.</span> Get In Touch
+        </h2>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-stretch">
+          <div
+            class="glass p-8 rounded-3xl border border-white/10 shadow-2xl relative overflow-hidden flex flex-col justify-center"
+          >
+            <h3
+              class="text-xl font-bold text-white mb-8 flex items-center gap-2"
+            >
+              <i class="fas fa-envelope-open-text text-accent"></i> Send a
+              Message
+            </h3>
+
+            <form
+              action="https://formsubmit.co/aniketrajid@gmail.com"
+              method="POST"
+              class="space-y-6"
+            >
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Portfolio Submission!"
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              
+
+              <div class="relative group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-white outline-none focus:border-accent transition-all peer"
+                  placeholder=" "
+                />
+                <label
+                  for="name"
+                  class="absolute left-4 top-4 text-slate-500 transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs bg-[#0f172a] px-2"
+                  >Your Name</label
+                >
+              </div>
+
+              <div class="relative group">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-white outline-none focus:border-accent transition-all peer"
+                  placeholder=" "
+                />
+                <label
+                  for="email"
+                  class="absolute left-4 top-4 text-slate-500 transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs bg-[#0f172a] px-2"
+                  >Email Address</label
+                >
+              </div>
+
+              <div class="relative group">
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  required
+                  class="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-4 text-white outline-none focus:border-accent transition-all peer"
+                  placeholder=" "
+                ></textarea>
+                <label
+                  for="message"
+                  class="absolute left-4 top-4 text-slate-500 transition-all peer-focus:-top-3 peer-focus:text-xs peer-focus:text-accent peer-[:not(:placeholder-shown)]:-top-3 peer-[:not(:placeholder-shown)]:text-xs bg-[#0f172a] px-2"
+                  >Your Message</label
+                >
+              </div>
+
+              <button
+                type="submit"
+                class="w-full py-4 bg-gradient-to-r from-primary to-accent text-dark font-black rounded-xl hover:scale-[1.02] active:scale-95 transition-all shadow-lg shadow-accent/20"
+              >
+                SEND MESSAGE <i class="fas fa-paper-plane ml-2"></i>
+              </button>
+            </form>
+          </div>
+
+          <div class="flex flex-col space-y-6">
+            <h3
+              class="text-2xl font-bold text-white mb-2 flex items-center gap-3"
+            >
+              <span class="w-10 h-1 bg-accent rounded-full"></span>
+              Digital Footprint
+            </h3>
+            <p class="text-slate-400 mb-4 italic">
+              Connect with me across platforms:
+            </p>
+
+            <div class="grid grid-cols-2 gap-4">
+              <a
+                href="https://linkedin.com/in/itsaniketraj"
+                target="_blank"
+                class="glass p-5 rounded-2xl border border-white/10 hover:border-[#0077b5] hover:bg-[#0077b5]/10 hover:scale-[1.03] transition-all group relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12"
+                >
+                  <i class="fab fa-linkedin text-6xl"></i>
+                </div>
+                <i
+                  class="fab fa-linkedin text-3xl text-[#0077b5] mb-2 group-hover:bounce"
+                ></i>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  LinkedIn
+                </p>
+                <p class="text-sm text-white font-medium truncate">
+                  @itsaniketraj
+                </p>
+              </a>
+
+              <a
+                href="https://github.com/itsrajaniket"
+                target="_blank"
+                class="glass p-5 rounded-2xl border border-white/10 hover:border-white hover:bg-white/10 hover:scale-[1.03] transition-all group relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12"
+                >
+                  <i class="fab fa-github text-6xl"></i>
+                </div>
+                <i
+                  class="fab fa-github text-3xl text-white mb-2 group-hover:bounce"
+                ></i>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  GitHub
+                </p>
+                <p class="text-sm text-white font-medium truncate">
+                  @itsrajaniket
+                </p>
+              </a>
+
+              <a
+                href="https://leetcode.com/u/ANIKET0591/"
+                target="_blank"
+                class="glass p-5 rounded-2xl border border-white/10 hover:border-[#FFA116] hover:bg-[#FFA116]/10 hover:scale-[1.03] transition-all group relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12"
+                >
+                  <i class="fas fa-terminal text-6xl"></i>
+                </div>
+                <i
+                  class="fas fa-code text-3xl text-[#FFA116] mb-2 group-hover:bounce"
+                ></i>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  LeetCode
+                </p>
+                <p class="text-sm text-white font-medium truncate">
+                  ANIKET0591
+                </p>
+              </a>
+
+              <a
+                href="https://x.com/Aniket_repo"
+                target="_blank"
+                class="glass p-5 rounded-2xl border border-white/10 hover:border-[#1DA1F2] hover:bg-[#1DA1F2]/10 hover:scale-[1.03] transition-all group relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12"
+                >
+                  <i class="fab fa-twitter text-6xl"></i>
+                </div>
+                <i
+                  class="fab fa-x-twitter text-3xl text-white mb-2 group-hover:bounce"
+                ></i>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  Twitter / X
+                </p>
+                <p class="text-sm text-white font-medium truncate">
+                  @Aniket_repo
+                </p>
+              </a>
+
+              <a
+                href="https://www.instagram.com/letscodehi/"
+                target="_blank"
+                class="glass p-5 rounded-2xl border border-white/10 hover:border-[#E4405F] hover:bg-[#E4405F]/10 hover:scale-[1.03] transition-all group relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12"
+                >
+                  <i class="fab fa-instagram text-6xl"></i>
+                </div>
+                <i
+                  class="fab fa-instagram text-3xl text-[#E4405F] mb-2 group-hover:bounce"
+                ></i>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  Instagram
+                </p>
+                <p class="text-sm text-white font-medium truncate">
+                  @letscodehi
+                </p>
+              </a>
+
+              <a
+                href="mailto:aniketrajid@gmail.com"
+                class="glass p-5 rounded-2xl border border-white/10 hover:border-[#EA4335] hover:bg-[#EA4335]/10 hover:scale-[1.03] transition-all group relative overflow-hidden"
+              >
+                <div
+                  class="absolute -right-4 -top-4 opacity-10 group-hover:opacity-20 transition-opacity rotate-12"
+                >
+                  <i class="fas fa-envelope text-6xl"></i>
+                </div>
+                <i
+                  class="fas fa-envelope text-3xl text-[#EA4335] mb-2 group-hover:bounce"
+                ></i>
+                <p
+                  class="text-[10px] text-slate-400 font-bold uppercase tracking-wider"
+                >
+                  Gmail
+                </p>
+                <p class="text-sm text-white font-medium truncate">
+                  aniketrajid@gmail
+                </p>
+              </a>
+            </div>
+
+            <div
+              class="glass p-4 rounded-xl border border-white/10 flex items-center justify-between"
+            >
+              <span class="text-slate-400 text-sm font-mono truncate mr-2"
+                >aniketrajid@gmail.com</span
+              >
+              <button
+                onclick="navigator.clipboard.writeText('aniketrajid@gmail.com')"
+                class="px-4 py-2 text-xs font-bold rounded-lg bg-accent/20 text-accent hover:bg-accent hover:text-dark transition-all"
+              >
+                COPY
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="contact" class="py-12 relative overflow-hidden bg-[#0a0a0a]">
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] top-1/4 left-1/4 pointer-events-none"></div>
+    <div class="absolute w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] bottom-1/4 right-1/4 pointer-events-none"></div>
+  </div>
+
+  <div class="container mx-auto px-4 sm:px-6 max-w-6xl">
+    
+    <h2 class="text-2xl font-bold mb-8 flex items-center justify-center lg:justify-start">
+      <span class="text-cyan-400 mr-3 font-mono text-lg">05.</span> 
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">Get In Touch</span>
+    </h2>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-start">
+      
+      <div class="bg-slate-900/60 backdrop-blur-md p-6 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden">
+        <h3 class="text-lg font-bold text-white mb-5 flex items-center gap-2">
+          <i class="fas fa-envelope-open-text text-cyan-400"></i> Send a Message
+        </h3>
+
+        <form action="https://formsubmit.co/aniketrajid@gmail.com" method="POST" class="space-y-4">
+          <input type="hidden" name="_subject" value="New Portfolio Submission!" />
+          <input type="hidden" name="_captcha" value="false" />
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="relative">
+              <input type="text" name="name" required class="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white outline-none focus:border-cyan-400 transition-colors peer" placeholder="Your Name" />
+            </div>
+            <div class="relative">
+              <input type="email" name="email" required class="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white outline-none focus:border-cyan-400 transition-colors peer" placeholder="Email Address" />
+            </div>
+          </div>
+
+          <div class="relative">
+            <textarea name="message" rows="5" required class="w-full bg-slate-950/50 border border-slate-700 rounded-lg px-4 py-2.5 text-sm text-white outline-none focus:border-cyan-400 transition-colors peer resize-none" placeholder="Your Message..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white font-bold text-sm rounded-lg hover:opacity-90 active:scale-[0.98] transition-all shadow-lg shadow-cyan-500/20 flex items-center justify-center gap-2">
+            SEND MESSAGE <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class="flex flex-col space-y-5">
+        
+        <div>
+          <h3 class="text-xl font-bold text-white mb-1 flex items-center gap-3">
+            <span class="w-8 h-1 bg-cyan-400 rounded-full"></span>
+            Digital Footprint
+          </h3>
+          <p class="text-slate-400 text-xs italic">Connect with me across platforms:</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          
+          <a href="https://linkedin.com/in/itsaniketraj" target="_blank" class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 hover:border-[#0077b5] hover:bg-[#0077b5]/5 transition-all group flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#0077b5]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i class="fab fa-linkedin text-lg text-[#0077b5]"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">LinkedIn</p>
+              <p class="text-xs text-white font-medium truncate">@itsaniketraj</p>
+            </div>
+          </a>
+
+          <a href="https://github.com/itsrajaniket" target="_blank" class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 hover:border-white hover:bg-white/5 transition-all group flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i class="fab fa-github text-lg text-white"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">GitHub</p>
+              <p class="text-xs text-white font-medium truncate">@itsrajaniket</p>
+            </div>
+          </a>
+
+          <a href="https://leetcode.com/u/ANIKET0591/" target="_blank" class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 hover:border-[#FFA116] hover:bg-[#FFA116]/5 transition-all group flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#FFA116]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i class="fas fa-code text-lg text-[#FFA116]"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">LeetCode</p>
+              <p class="text-xs text-white font-medium truncate">ANIKET0591</p>
+            </div>
+          </a>
+
+          <a href="https://x.com/Aniket_repo" target="_blank" class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 hover:border-[#1DA1F2] hover:bg-[#1DA1F2]/5 transition-all group flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#1DA1F2]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i class="fab fa-x-twitter text-lg text-[#1DA1F2]"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Twitter</p>
+              <p class="text-xs text-white font-medium truncate">@Aniket_repo</p>
+            </div>
+          </a>
+
+          <a href="https://www.instagram.com/letscodehi/" target="_blank" class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 hover:border-[#E4405F] hover:bg-[#E4405F]/5 transition-all group flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#E4405F]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i class="fab fa-instagram text-lg text-[#E4405F]"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Instagram</p>
+              <p class="text-xs text-white font-medium truncate">@letscodehi</p>
+            </div>
+          </a>
+
+          <a href="mailto:aniketrajid@gmail.com" class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 hover:border-[#EA4335] hover:bg-[#EA4335]/5 transition-all group flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-[#EA4335]/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+              <i class="fas fa-envelope text-lg text-[#EA4335]"></i>
+            </div>
+            <div class="overflow-hidden">
+              <p class="text-[9px] text-slate-500 font-bold uppercase tracking-wider">Gmail</p>
+              <p class="text-xs text-white font-medium truncate">aniketrajid@gmail</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-800 flex items-center justify-between mt-2">
+          <span class="text-slate-400 text-xs font-mono truncate mr-2">aniketrajid@gmail.com</span>
+          <button onclick="navigator.clipboard.writeText('aniketrajid@gmail.com')" class="px-3 py-1.5 text-[10px] font-bold rounded bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500 hover:text-white transition-all">
+            COPY
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+    <footer class="py-8 text-center text-slate-500 text-sm">
+      <p>Built by Aniket Raj &copy; 2026</p>
+    </footer>
+
+    <script>
+      // Highlighting nav links on scroll
+      const sections = document.querySelectorAll("section");
+      const navLinks = document.querySelectorAll(".nav-link");
+
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 100) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("nav-active");
+          if (link.getAttribute("href").includes(current)) {
+            link.classList.add("nav-active");
+          }
+        });
+      });
+
+      const words = [
+        "Frontend Developer",
+        "React Enthusiast",
+        "Problem Solver",
+        "Tech Learner",
+      ];
+      let i = 0;
+      let j = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+        const heading = document.getElementById("typewriter");
+        const currentWord = words[i];
+
+        if (isDeleting) {
+          // Deleting text
+          heading.innerHTML = currentWord.substring(0, j - 1);
+          j--;
+          if (j === 0) {
+            isDeleting = false;
+            i = (i + 1) % words.length; // Switch to next word
+            setTimeout(typeEffect, 100); // Pause before typing next word
+          } else {
+            setTimeout(typeEffect, 40); // Deleting speed
+          }
+        } else {
+          // Typing text
+          heading.innerHTML = currentWord.substring(0, j + 1);
+          j++;
+          if (j === currentWord.length) {
+            isDeleting = true;
+            setTimeout(typeEffect, 500); // Pause before deleting
+          } else {
+            setTimeout(typeEffect, 60); // Typing speed
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", typeEffect);
+    </script>
+    <button
+      id="scrollTopBtn"
+      class="fixed bottom-8 right-8 bg-accent text-dark p-4 rounded-full shadow-[0_0_20px_rgba(34,211,238,0.6)] translate-y-20 opacity-0 transition-all duration-300 z-50 hover:scale-110 hidden"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fas fa-arrow-up text-xl font-bold"></i>
+    </button>
+
+    <script>
+      /* =========================================
+     1. GLOBAL MOUSE TRAIL (Sparkle Effect)
+     ========================================= */
+      (function () {
+        const canvas = document.getElementById("global-canvas");
+        const ctx = canvas.getContext("2d");
+        let particlesArray = [];
+        let hue = 0;
+
+        // Resize canvas
+        const resize = () => {
+          canvas.width = window.innerWidth;
+          canvas.height = window.innerHeight;
+        };
+        window.addEventListener("resize", resize);
+        resize();
+
+        // Mouse object
+        const mouse = { x: undefined, y: undefined };
+        window.addEventListener("mousemove", (event) => {
+          mouse.x = event.x;
+          mouse.y = event.y;
+          // Add particles on move
+          for (let i = 0; i < 5; i++) {
+            particlesArray.push(new Particle());
+          }
+        });
+
+        class Particle {
+          constructor() {
+            this.x = mouse.x;
+            this.y = mouse.y;
+            this.size = Math.random() * 2 + 1;
+            this.speedX = Math.random() * 2 - 1;
+            this.speedY = Math.random() * 2 - 1;
+            this.color = "hsl(" + (hue + 180) + ", 100%, 50%)";
+          }
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            if (this.size > 0.1) this.size -= 0.03;
+          }
+          draw() {
+            ctx.fillStyle = "rgba(34, 211, 238, 0.5)"; // Cyan
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        function animate() {
+          // Clear canvas for transparency
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+            particlesArray[i].draw();
+            if (particlesArray[i].size <= 0.3) {
+              particlesArray.splice(i, 1);
+              i--;
+            }
+          }
+          hue += 2;
+          requestAnimationFrame(animate);
+        }
+        animate();
+      })();
+
+      /* =========================================
+     2. HOME SECTION NETWORK (Spider Effect)
+     ========================================= */
+      (function () {
+        const canvas = document.getElementById("home-canvas");
+        const ctx = canvas.getContext("2d");
+        const homeSection = document.getElementById("home");
+        let particlesArray;
+
+        // Resize logic specific to Home Section
+        const resize = () => {
+          canvas.width = homeSection.offsetWidth;
+          canvas.height = homeSection.offsetHeight;
+          init();
+        };
+        window.addEventListener("resize", resize);
+
+        // Initial Size
+        canvas.width = homeSection.offsetWidth;
+        canvas.height = homeSection.offsetHeight;
+
+        let mouse = { x: null, y: null, radius: 100 };
+
+        // Track mouse relative to the section
+        window.addEventListener("mousemove", (event) => {
+          const rect = canvas.getBoundingClientRect();
+          // Only track if mouse is inside the Home section
+          if (event.clientY >= rect.top && event.clientY <= rect.bottom) {
+            mouse.x = event.clientX - rect.left;
+            mouse.y = event.clientY - rect.top;
+          } else {
+            mouse.x = null;
+            mouse.y = null;
+          }
+        });
+
+        class Particle {
+          constructor(x, y, directionX, directionY, size, color) {
+            this.x = x;
+            this.y = y;
+            this.directionX = directionX;
+            this.directionY = directionY;
+            this.size = size;
+            this.color = color;
+          }
+          draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+            ctx.fillStyle = "rgba(34, 211, 238, 0.4)"; // Faint Cyan
+            ctx.fill();
+          }
+          update() {
+            // Boundary check
+            if (this.x > canvas.width || this.x < 0)
+              this.directionX = -this.directionX;
+            if (this.y > canvas.height || this.y < 0)
+              this.directionY = -this.directionY;
+
+            // Mouse interaction
+            let dx = mouse.x - this.x;
+            let dy = mouse.y - this.y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance < mouse.radius + this.size) {
+              if (mouse.x < this.x && this.x < canvas.width - this.size * 10)
+                this.x += 3;
+              if (mouse.x > this.x && this.x > this.size * 10) this.x -= 3;
+              if (mouse.y < this.y && this.y < canvas.height - this.size * 10)
+                this.y += 3;
+              if (mouse.y > this.y && this.y > this.size * 10) this.y -= 3;
+            }
+            this.x += this.directionX;
+            this.y += this.directionY;
+            this.draw();
+          }
+        }
+
+        function init() {
+          particlesArray = [];
+          let numberOfParticles = (canvas.height * canvas.width) / 6000;
+          for (let i = 0; i < numberOfParticles; i++) {
+            let size = Math.random() * 2.5 + 0.5;
+            let x = Math.random() * canvas.width;
+            let y = Math.random() * canvas.height;
+            let directionX = Math.random() * 1 - 0.5;
+            let directionY = Math.random() * 1 - 0.5;
+            particlesArray.push(
+              new Particle(x, y, directionX, directionY, size, "#22d3ee"),
+            );
+          }
+        }
+
+        function connect() {
+          for (let a = 0; a < particlesArray.length; a++) {
+            for (let b = a; b < particlesArray.length; b++) {
+              let distance =
+                (particlesArray[a].x - particlesArray[b].x) ** 2 +
+                (particlesArray[a].y - particlesArray[b].y) ** 2;
+
+              if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                let opacityValue = 1 - distance / 20000;
+                ctx.strokeStyle =
+                  "rgba(34, 211, 238," + opacityValue * 0.4 + ")"; // Very faint lines
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                ctx.stroke();
+              }
+            }
+          }
+        }
+
+        function animate() {
+          requestAnimationFrame(animate);
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          for (let i = 0; i < particlesArray.length; i++) {
+            particlesArray[i].update();
+          }
+          connect();
+        }
+
+        init();
+        animate();
+      })();
+    </script>
+  </body>
+  <script>
+    const menuBtn = document.getElementById("menu-btn");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = document.getElementById("menu-icon");
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+
+    // Toggle menu visibility
+    menuBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+
+      // Switch between hamburger and "X" icon
+      if (mobileMenu.classList.contains("hidden")) {
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      } else {
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
+      }
+    });
+
+    // Close menu when a link is clicked
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.add("hidden");
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
+      });
+    });
+    // Scroll to Top Button Logic
+    const scrollBtn = document.getElementById("scrollTopBtn");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 500) {
+        scrollBtn.classList.remove("hidden", "translate-y-20", "opacity-0");
+      } else {
+        scrollBtn.classList.add("translate-y-20", "opacity-0");
+        setTimeout(() => scrollBtn.classList.add("hidden"), 300); // Wait for animation
+      }
+    });
+  </script>
+</html>
